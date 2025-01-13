@@ -1,4 +1,3 @@
-# BankSystem
 Software Requirements Specification (SRS)
 1. Introduction
 1.1 Purpose
@@ -13,17 +12,18 @@ The system shall allow multiple clients to access its services at the same time.
 The system shall ensure that the information is secure and reliable through the usage of measures of a multitude of security measures. 
 
 3. Specific Requirements
+   
 3.1 Functional Requirements
-The system must use multithreading to simulate concurrent customers and synchronization techniques to ensure the integrity of shared resources.
-The client will be able to check it’s balance.
-The client will be able to withdraw money from it’s account.
-The client will be able to deposit money from it’s account. 
-Print the account balances after all customers have completed their transactions.
-Each client will perform random transactions (deposits or withdrawals).
-The system will use methods to add accounts and retrieve account details.
+- The system must use multithreading to simulate concurrent customers and synchronization techniques to ensure the integrity of shared resources.
+- The client will be able to check it’s balance.
+- The client will be able to withdraw money from it’s account.
+- The client will be able to deposit money from it’s account. 
+- Print the account balances after all customers have completed their transactions.
+- Each client will perform random transactions (deposits or withdrawals).
+- The system will use methods to add accounts and retrieve account details.
+
 3.2 Non-functional Requirements
 Performance: The system should allow and be able to handle at minimum five accounts and ten clients. 
 Security: The system should secure the shared data points in the system by using measures such as mutex. 
 Reliability: The system should reliably be able to handle multiple client actions without dropping the input or cause any major issues with the data. 
-
 
