@@ -5,13 +5,13 @@ The purpose of the program is to simulate a bank system that handles multiple cl
 1.2 Scope
 The purpose is to simulate several statements from the banking system at the same time, using multithreading.
 
-2. Overall Description
+3. Overall Description
 2.1 Product Functions
 The product shall allow the simulated client to withdraw and deposit money into an associated bank account. Furthermore, it shall allow the user to view the bank balance of their associated bank account.
 The system shall allow multiple clients to access its services at the same time.
 The system shall ensure that the information is secure and reliable through the usage of measures of a multitude of security measures. 
 
-3. Specific Requirements  
+5. Specific Requirements  
 3.1 Functional Requirements
 - The system must use multithreading to simulate concurrent customers and synchronization techniques to ensure the integrity of shared resources.
 - The client will be able to check it’s balance.
