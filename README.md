@@ -11,8 +11,7 @@ The product shall allow the simulated client to withdraw and deposit money into 
 The system shall allow multiple clients to access its services at the same time.
 The system shall ensure that the information is secure and reliable through the usage of measures of a multitude of security measures. 
 
-3. Specific Requirements
-   
+3. Specific Requirements  
 3.1 Functional Requirements
 - The system must use multithreading to simulate concurrent customers and synchronization techniques to ensure the integrity of shared resources.
 - The client will be able to check it’s balance.
