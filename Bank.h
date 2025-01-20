@@ -6,6 +6,13 @@
 
 class Bank {
     std::map<int, BankAccount> Accounts;
+    
+public:
+
+    void addAccount(BankAccount account);
+    auto getAccountDetails(int key);
+    auto getMap();
+    //auto getAccountDetails(int key);
 };
 
 #endif
