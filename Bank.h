@@ -11,7 +11,7 @@ public:
 
     void addAccount(BankAccount account);
     auto getAccountDetails(int key);
-    auto getMap();
+    std::map<int, BankAccount>& getMap();
     //auto getAccountDetails(int key);
 };
 

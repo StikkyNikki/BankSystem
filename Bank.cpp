@@ -23,7 +23,7 @@
         }
     }
 
-    auto Bank::getMap() {
+    std::map<int, BankAccount>& Bank::getMap() {
       return Accounts;
     }    
 
