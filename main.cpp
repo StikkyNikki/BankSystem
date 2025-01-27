@@ -7,14 +7,17 @@
 #include <functional>
 #include "Bank.h"
 
-std::mutex bankMutex; // ska revideras
+std::mutex a1, a2, a3, a4, a5;
 
-void client(Bank &bank, std::mt19937 &gen);
+void client(Bank& bank, int accountNumber, std::mt19937& gen);
+
+std::mutex& determineMutex(int accountID);
 
 int main()
 {
     std::vector<std::thread> Clients;
     Bank bank;
+
     // srand(time(NULL));
 
     // slumpgenerator
@@ -53,6 +56,38 @@ int main()
     return 0;
 }
 
+
+//Determine which account to lock by returning the associated mutex.
+std::mutex& determineMutex(int accountID) {
+    switch (accountID) {
+
+        case 1:
+        return a1;
+        break;
+
+        case 2: 
+        return a2;
+        break;
+
+        case 3:
+        return a3;
+        break;
+
+        case 4:
+        return a4;
+        break;
+
+        case 5:
+        return a5;
+        break;
+
+        default: 
+        std::cout << "Something went wrong when determining mutex.\n";
+        break;
+    }
+
+}
+
 void client(Bank &bank, std::mt19937 &gen) // test. Behöver kopplas till
 {
     //// Slumpmässig distribution för kontonummer (1–5)
@@ -79,6 +114,7 @@ void client(Bank &bank, std::mt19937 &gen) // test. Behöver kopplas till
         {
 
             auto it = bank.getMap().find(accountID);
+            std::lock_guard<std::mutex> lock(determineMutex(accountID));
 
             if (it != bank.getMap().end())
             {
@@ -96,6 +132,7 @@ void client(Bank &bank, std::mt19937 &gen) // test. Behöver kopplas till
         case 2:
         {
             auto it = bank.getMap().find(accountID);
+            std::lock_guard<std::mutex> lock(determineMutex(accountID));
 
             if (it != bank.getMap().end())
             {
@@ -113,6 +150,7 @@ void client(Bank &bank, std::mt19937 &gen) // test. Behöver kopplas till
 
         {
             auto it = bank.getMap().find(accountID);
+            std::lock_guard<std::mutex> lock(determineMutex(accountID));
 
             if (it != bank.getMap().end())
             {

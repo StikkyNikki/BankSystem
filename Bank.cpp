@@ -1,5 +1,6 @@
 #include "Bank.h"
 
+
 void Bank::addAccount(BankAccount account /*, int accountNumber, int balance*/)
 {
     Accounts[account.getAccountNumber()] = account;
@@ -32,3 +33,4 @@ std::map<int, BankAccount> &Bank::getMap()
 
 // Hantera flera konton i en std::map<int, BankAccount> .
 // Implementera metoder för att lägga till konton och hämta kontouppgifte
+
