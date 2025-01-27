@@ -9,7 +9,7 @@
 
 std::mutex a1, a2, a3, a4, a5;
 
-void client(Bank& bank, int accountNumber, std::mt19937& gen);
+void client(Bank& bank, std::mt19937& gen);
 
 std::mutex& determineMutex(int accountID);
 
@@ -41,7 +41,7 @@ int main()
     // Skapar kunderna
     for (int i = 0; i < 10; i++)
     {
-        Clients.emplace_back(std::thread(client, std::ref(bank)), std::ref(gen));
+        Clients.emplace_back(std::thread(client, std::ref(bank), std::ref(gen)));
     }
 
     // Ser till att main väntar på tråderna om de finns.
@@ -154,7 +154,7 @@ void client(Bank &bank, std::mt19937 &gen) // test. Behöver kopplas till
 
             if (it != bank.getMap().end())
             {
-                std::cout << "Client ID: " << accountID << " ";
+                std::cout << "Account " << accountID << "\n";
                 std::cout << "Balance: " << it->second.getBalance() << std::endl;
             }
             else
