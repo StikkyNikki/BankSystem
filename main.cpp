@@ -57,9 +57,9 @@ void client(Bank& bank, int accountNumber, std::mt19937& gen)  //test. Behöver 
     //// Slumpmässig distribution för kontonummer (1–5)
     std::uniform_int_distribution<> accountDist(1, 5);
     // Slumpmässig distribution för belopp (1 till 75)
-    std::uniform_real_distribution<> amountDist(1, 75);
+    std::uniform_int_distribution<> amountDist(1, 75);
 
-    std::uniform_real_distribution<> optionDist(1, 3);
+    std::uniform_int_distribution<> optionDist(1, 3);
 
      // Simulera en klient som gör några insättningar och uttag
     for (int i = 0; i < 5; ++i) 
@@ -73,6 +73,7 @@ void client(Bank& bank, int accountNumber, std::mt19937& gen)  //test. Behöver 
         int option = optionDist(gen);
         switch (option) 
         {
+            {
             case 1:
 
                 auto it = bank.getMap().find(accountID);
@@ -85,10 +86,20 @@ void client(Bank& bank, int accountNumber, std::mt19937& gen)  //test. Behöver 
                 }
                 //bank.withdraw(accountNumber, amount);
                 break;
+            }
                 
             case 2:
-                bank.deposit(accountNumber, amount);
+            {
+                auto it = bank.getMap().find(accountID);
+
+                if (it != bank.getMap().end()) {
+                it->second.deposit(amount);
+                
+                } else {
+                std::cout << "Account not found!" << std::endl;
+                }
                 break;
+            }
 
             case 3: 
                 
@@ -98,14 +109,7 @@ void client(Bank& bank, int accountNumber, std::mt19937& gen)  //test. Behöver 
             std::cout << "Something went wrong when choosing a option.\n";
             break;
         }
-
-
-
     }
-    
- 
-    
-
     
 }
 
