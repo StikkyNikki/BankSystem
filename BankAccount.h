@@ -1,5 +1,5 @@
-#ifndef BANKACCOUNT_H
-#define BANKACCOUNT_H
+//#ifndef BANKACCOUNT_H
+//#define BANKACCOUNT_H
 
 #include <iostream>
 
@@ -16,12 +16,9 @@ public:
     int getBalance();
     int getAccountNumber();
 
-
-    BankAccount(int accountNumber) 
-    {
-        this->accountNumber = accountNumber;
-    } 
+    BankAccount();
+    BankAccount(int accountNumber);
 
 };
 
-#endif
+//#endif

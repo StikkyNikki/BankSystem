@@ -1,5 +1,5 @@
-#ifndef BANK_H
-#define BANK_H
+//#ifndef BANK_H
+//#define BANK_H
 
 #include <map>
 #include "BankAccount.h"
@@ -16,4 +16,4 @@ public:
 
 };
 
-#endif
+//#endif

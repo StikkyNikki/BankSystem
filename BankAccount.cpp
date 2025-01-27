@@ -30,3 +30,12 @@ int BankAccount::getAccountNumber()
 {
     return accountNumber;
 }
+
+BankAccount::BankAccount() : accountNumber(0) {
+
+};
+
+BankAccount::BankAccount(int accountNumber) 
+    {
+        this->accountNumber = accountNumber;
+    };
