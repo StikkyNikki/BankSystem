@@ -3,7 +3,9 @@
 
 #include <iostream>
 
+
 class BankAccount 
+
 {
     int balance = 500;
     int accountNumber;
@@ -14,10 +16,12 @@ public:
     int getBalance();
     int getAccountNumber();
 
+
     BankAccount(int accountNumber) 
     {
         this->accountNumber = accountNumber;
     } 
+
 };
 
 #endif

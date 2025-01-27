@@ -4,15 +4,16 @@
 #include <map>
 #include "BankAccount.h"
 
-class Bank {
+class Bank
+{
     std::map<int, BankAccount> Accounts;
-    
-public:
 
+public:
     void addAccount(BankAccount account);
     auto getAccountDetails(int key);
-    std::map<int, BankAccount>& getMap();
-    //auto getAccountDetails(int key);
+    std::map<int, BankAccount> &getMap();
+    // auto getAccountDetails(int key);
+
 };
 
 #endif

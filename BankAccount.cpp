@@ -1,5 +1,6 @@
 #include "BankAccount.h"
 
+
 void BankAccount::deposit(int amount) 
 {
         balance += amount;
@@ -18,11 +19,14 @@ void BankAccount::withdraw(int amount)
 }
 
 int BankAccount::getBalance() 
+
 {
     return balance;
 }
 
+
 int BankAccount::getAccountNumber() 
+
 {
     return accountNumber;
 }
