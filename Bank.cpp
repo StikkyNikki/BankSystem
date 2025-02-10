@@ -11,7 +11,7 @@ void Bank::addAccount(BankAccount account /*, int accountNumber, int balance*/)
     // Accounts[accountNumber] = BankAccount(account.getAccountNumber(), balance);
 }
 
-void Bank::getAccountDetails(int key)
+/*void Bank::getAccountDetails(int key)
 {
 
     // Finds the correct value through key and print out the account ID and Balance.
@@ -28,7 +28,7 @@ void Bank::getAccountDetails(int key)
     {
         std::cout << "Account not found!" << std::endl;
     }
-}
+}*/
 
 
 //Returnerar Map från Bank klassen. 

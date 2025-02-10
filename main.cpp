@@ -1,7 +1,6 @@
 #include <map>
 #include <vector>
 #include <iostream>
-#include <thread>
 #include <functional>
 #include "Bank.h"
 #include "Utility.h"
@@ -38,7 +37,7 @@ int main()
     // Skapar kunderna
     for (int i = 0; i < 10; i++)
     {
-        Clients.emplace_back(std::thread(client, std::ref(bank)), std::ref(gen));
+        Clients.emplace_back(std::thread(client, std::ref(bank), std::ref(gen)));
     }
 
 
@@ -130,9 +129,10 @@ void client(Bank &bank, std::mt19937 &gen) // test. Behöver kopplas till
 
             if (it != bank.getMap().end())
             {
-                std::cout << "Client ID: " << accountID << " ";
+                //std::cout << "Account ID: " << accountID << " ";
                 it->second.withdraw(amount);
             }
+            
             else
             {
                 std::cout << "Account not found!" << std::endl;
@@ -150,9 +150,10 @@ void client(Bank &bank, std::mt19937 &gen) // test. Behöver kopplas till
 
             if (it != bank.getMap().end())
             {
-                std::cout << "Client ID: " << accountID << " ";
+                //std::cout << "Account ID: " << accountID << " ";
                 it->second.deposit(amount);
             }
+
             else
             {
                 std::cout << "Account not found!" << std::endl;
@@ -169,9 +170,9 @@ void client(Bank &bank, std::mt19937 &gen) // test. Behöver kopplas till
 
             if (it != bank.getMap().end())
             {
-                std::cout << "Account ID: " << accountID << " ";
-                std::cout << "Balance: " << it->second.getBalance() << std::endl;
+                it->second.getAccountDetails();
             }
+
             else
             {
                 std::cout << "Account not found!" << std::endl;

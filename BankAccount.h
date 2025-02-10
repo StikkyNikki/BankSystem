@@ -2,10 +2,7 @@
 #define BANKACCOUNT_H
 
 #include <iostream>
-#include <mutex>
-
-//Skyddar Bank mappen 
-std::mutex BankM;
+#include <thread>
 
 class BankAccount 
 
@@ -16,16 +13,19 @@ class BankAccount
 
 public:
 
-    void deposit(int amount);
-    void withdraw(int amount);
-    int getBalance();
-    int getAccountNumber();
+    //en tom konstruktor för BankAccount
+    BankAccount();
 
     //Konstruerar en instans av BankAccount och tilldelar ett accountNumber. 
-    BankAccount(int accountNumber) 
-    {
-        this->accountNumber = accountNumber;
-    } 
+    BankAccount(int accountNumber); 
+    
+    
+    void deposit(int amount);
+    void withdraw(int amount);
+    void getAccountDetails();
+    int getBalance();
+    int getAccountNumber();
+    
 
 };
 

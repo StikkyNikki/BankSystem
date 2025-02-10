@@ -1,9 +1,13 @@
 #ifndef UTILITY_H
 #define UTILITY_H
 #include <random>
+#include <mutex>
 
-//Skapar en lokal generator för varje tråd.
-thread_local std::mt19937 gen(std::random_device{}()); 
+// Skyddar Bank-mappen 
+extern std::mutex BankM;
+
+// Skapar en lokal generator för varje tråd.
+extern thread_local std::mt19937 gen; 
 
 int determineAccount();
 

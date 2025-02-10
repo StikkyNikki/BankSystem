@@ -12,7 +12,7 @@ class Bank
 public:
 
     void addAccount(BankAccount account);
-    void getAccountDetails(int key);
+    //void getAccountDetails(int key);
     std::map<int, BankAccount> &getMap();
 };
 

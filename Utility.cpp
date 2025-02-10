@@ -1,5 +1,11 @@
 #include "Utility.h"
 
+// Skyddar bankens resurser
+std::mutex BankM;
+
+// Skapar en lokal generator för varje tråd.
+thread_local std::mt19937 gen(std::random_device{}());
+
 int determineAccount() {
 
     // Slumpmässig distribution för kontonummer (1–5)
