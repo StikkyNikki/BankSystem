@@ -2,21 +2,26 @@
 #define BANKACCOUNT_H
 
 #include <iostream>
+#include <mutex>
+
+std::mutex BankM;
 
 
 class BankAccount 
 
 {
+    //Start värde för konton. 
     int balance = 500;
     int accountNumber;
 
 public:
+
     void deposit(int amount);
     void withdraw(int amount);
     int getBalance();
     int getAccountNumber();
 
-
+    //Konstruerar en instans av BankAccount och tilldelar ett accountNumber. 
     BankAccount(int accountNumber) 
     {
         this->accountNumber = accountNumber;

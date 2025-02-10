@@ -1,17 +1,14 @@
 #include <map>
 #include <vector>
 #include <iostream>
-#include <mutex>
 #include <thread>
 #include <random>
 #include <functional>
 #include "Bank.h"
 
-std::mutex a1, a2, a3, a4, a5;
+void client(Bank& bank, std::mt19937& gen);
 
-void client(Bank& bank, int accountNumber, std::mt19937& gen);
-
-std::mutex& determineMutex(int accountID);
+//std::mutex& determineMutex(int accountID);
 
 int main()
 {
@@ -58,7 +55,7 @@ int main()
 
 
 //Determine which account to lock by returning the associated mutex.
-std::mutex& determineMutex(int accountID) {
+/*std::mutex& determineMutex(int accountID) {
     switch (accountID) {
 
         case 1:
@@ -86,7 +83,7 @@ std::mutex& determineMutex(int accountID) {
         break;
     }
 
-}
+}*/
 
 void client(Bank &bank, std::mt19937 &gen) // test. Behöver kopplas till
 {
@@ -114,7 +111,7 @@ void client(Bank &bank, std::mt19937 &gen) // test. Behöver kopplas till
         {
 
             auto it = bank.getMap().find(accountID);
-            std::lock_guard<std::mutex> lock(determineMutex(accountID));
+            std::lock_guard<std::mutex> lock(BankM);
 
             if (it != bank.getMap().end())
             {
@@ -132,7 +129,7 @@ void client(Bank &bank, std::mt19937 &gen) // test. Behöver kopplas till
         case 2:
         {
             auto it = bank.getMap().find(accountID);
-            std::lock_guard<std::mutex> lock(determineMutex(accountID));
+            std::lock_guard<std::mutex> lock(BankM);
 
             if (it != bank.getMap().end())
             {
@@ -150,7 +147,7 @@ void client(Bank &bank, std::mt19937 &gen) // test. Behöver kopplas till
 
         {
             auto it = bank.getMap().find(accountID);
-            std::lock_guard<std::mutex> lock(determineMutex(accountID));
+            std::lock_guard<std::mutex> lock(BankM);
 
             if (it != bank.getMap().end())
             {

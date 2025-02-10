@@ -1,12 +1,14 @@
 #include "BankAccount.h"
 
-
+//Sätter in pengar på kontot
 void BankAccount::deposit(int amount) 
 {
         balance += amount;
         std::cout << amount << " has been deposited in account " << accountNumber << std::endl;
 }
 
+
+//Tar ut pengar från kontot, om mängden de vill ta ut är tillgänglig. 
 void BankAccount::withdraw(int amount) 
 {
 
@@ -18,6 +20,8 @@ void BankAccount::withdraw(int amount)
     }   
 }
 
+
+//Returnerar saldo för kontot.
 int BankAccount::getBalance() 
 
 {
@@ -25,6 +29,7 @@ int BankAccount::getBalance()
 }
 
 
+//Returnerar kontonummer för konto. 
 int BankAccount::getAccountNumber() 
 
 {

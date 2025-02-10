@@ -10,7 +10,7 @@ void Bank::addAccount(BankAccount account /*, int accountNumber, int balance*/)
     // Accounts[accountNumber] = BankAccount(account.getAccountNumber(), balance);
 }
 
-auto Bank::getAccountDetails(int key)
+void Bank::getAccountDetails(int key)
 {
 
     // Finds the correct value through key and print out the account ID and Balance.
