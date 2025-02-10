@@ -4,8 +4,8 @@
 #include <iostream>
 #include <mutex>
 
+//Skyddar Bank mappen 
 std::mutex BankM;
-
 
 class BankAccount 
 
